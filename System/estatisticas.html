@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COSMÉTICOS - Estatísticas</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/sidebar.css">
+  <link rel="stylesheet" href="css/estatisticas.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="app-container">
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h1 class="sidebar-title">COSMÉTICOS</h1>
+      </div>
+      <nav class="sidebar-nav">
+        <ul class="sidebar-menu">
+          <li class="sidebar-menu-item">
+            <a href="dashboard.html" class="sidebar-link">
+              <span class="sidebar-icon">🏠</span>
+              <span>Início</span>
+            </a>
+          </li>
+          <li class="sidebar-menu-item">
+            <a href="produtos-lista.html" class="sidebar-link">
+              <span class="sidebar-icon">📦</span>
+              <span>Produtos</span>
+            </a>
+          </li>
+          <li class="sidebar-menu-item">
+            <a href="produtos-cadastro.html" class="sidebar-link">
+              <span class="sidebar-icon">➕</span>
+              <span>Cadastrar Produto</span>
+            </a>
+          </li>
+          <li class="sidebar-menu-item">
+            <a href="estatisticas.html" class="sidebar-link active">
+              <span class="sidebar-icon">📊</span>
+              <span>Estatísticas</span>
+            </a>
+          </li>
+          <li class="sidebar-menu-item">
+            <a href="configuracoes.html" class="sidebar-link">
+              <span class="sidebar-icon">⚙️</span>
+              <span>Configurações</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="user-info">
+          <span class="user-name" id="user-name">Administrador</span>
+        </div>
+        <button id="logout-btn" class="sidebar-link">
+          <span class="sidebar-icon">🚪</span>
+          <span>Sair</span>
+        </button>
+      </div>
+    </div>
+    
+    <main class="main-content">
+      <div class="estatisticas-container">
+        <h1>Estatísticas</h1>
+        
+        <div class="tabs">
+          <div class="tab active" data-tab="visao-geral">Visão Geral</div>
+          <div class="tab" data-tab="categorias">Categorias</div>
+          <div class="tab" data-tab="financeiro">Financeiro</div>
+          <div class="tab" data-tab="estoque">Estoque</div>
+        </div>
+        
+        <div class="tab-content active" id="tab-visao-geral">
+          <div class="stats-summary">
+            <div class="stat-box">
+              <h3>Total de Produtos</h3>
+              <div class="stat-value" id="total-produtos">0</div>
+            </div>
+            <div class="stat-box">
+              <h3>Itens em Estoque</h3>
+              <div class="stat-value" id="total-itens">0</div>
+            </div>
+            <div class="stat-box">
+              <h3>Valor do Estoque</h3>
+              <div class="stat-value" id="valor-estoque">R$ 0,00</div>
+            </div>
+            <div class="stat-box">
+              <h3>Estoque Baixo</h3>
+              <div class="stat-value" id="estoque-baixo">0</div>
+            </div>
+          </div>
+          
+          <div class="charts-container">
+            <div class="chart-card">
+              <h2>Produtos por Categoria</h2>
+              <div class="chart-wrapper">
+                <canvas id="chart-categorias"></canvas>
+              </div>
+            </div>
+            <div class="chart-card">
+              <h2>Distribuição de Valor por Categoria</h2>
+              <div class="chart-wrapper">
+                <canvas id="chart-valor-categorias"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="tab-content" id="tab-categorias">
+          <div class="chart-card full-width">
+            <h2>Distribuição por Categoria</h2>
+            <div class="chart-wrapper">
+              <canvas id="chart-categorias-detalhado"></canvas>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Detalhes por Categoria</h2>
+            </div>
+            <div class="card-content">
+              <table class="categoria-table">
+                <thead>
+                  <tr>
+                    <th>Categoria</th>
+                    <th>Produtos</th>
+                    <th>Qtd. Total</th>
+                    <th>Valor Total</th>
+                    <th>Lucro Potencial</th>
+                  </tr>
+                </thead>
+                <tbody id="tabela-categorias">
+                  <tr>
+                    <td colspan="5" class="text-center">Carregando dados...</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        
+        <div class="tab-content" id="tab-financeiro">
+          <div class="stats-summary">
+            <div class="stat-box">
+              <h3>Valor de Custo</h3>
+              <div class="stat-value" id="valor-custo">R$ 0,00</div>
+            </div>
+            <div class="stat-box">
+              <h3>Valor de Venda</h3>
+              <div class="stat-value" id="valor-venda">R$ 0,00</div>
+            </div>
+            <div class="stat-box">
+              <h3>Lucro Potencial</h3>
+              <div class="stat-value" id="lucro-potencial">R$ 0,00</div>
+            </div>
+            <div class="stat-box">
+              <h3>Margem Média</h3>
+              <div class="stat-value" id="margem-media">0%</div>
+            </div>
+          </div>
+          
+          <div class="chart-card full-width">
+            <h2>Margem de Lucro por Categoria</h2>
+            <div class="chart-wrapper">
+              <canvas id="chart-margem-lucro"></canvas>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Produtos Mais Lucrativos</h2>
+            </div>
+            <div class="card-content">
+              <table class="produtos-table">
+                <thead>
+                  <tr>
+                    <th>Produto</th>
+                    <th>Categoria</th>
+                    <th>Custo</th>
+                    <th>Venda</th>
+                    <th>Margem</th>
+                    <th>Lucro por Unidade</th>
+                  </tr>
+                </thead>
+                <tbody id="tabela-lucrativos">
+                  <tr>
+                    <td colspan="6" class="text-center">Carregando dados...</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        
+        <div class="tab-content" id="tab-estoque">
+          <div class="chart-card full-width">
+            <h2>Distribuição de Estoque</h2>
+            <div class="chart-wrapper">
+              <canvas id="chart-estoque"></canvas>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Produtos com Estoque Baixo</h2>
+            </div>
+            <div class="card-content">
+              <table class="estoque-table">
+                <thead>
+                  <tr>
+                    <th>Produto</th>
+                    <th>Categoria</th>
+                    <th>Estoque Atual</th>
+                    <th>Estoque Mínimo</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="tabela-estoque-baixo">
+                  <tr>
+                    <td colspan="5" class="text-center">Carregando dados...</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  <script src="js/auth.js"></script>
+  <script src="js/estatisticas.js"></script>
+</body>
+</html>

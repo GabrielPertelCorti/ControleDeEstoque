@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COSMÉTICOS - Configurações</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/sidebar.css">
+  <link rel="stylesheet" href="css/configuracoes.css">
+</head>
+<body>
+  <div class="app-container">
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h1 class="sidebar-title">COSMÉTICOS</h1>
+      </div>
+      <nav class="sidebar-nav">
+        <ul class="sidebar-menu">
+          <li class="sidebar-menu-item">
+            <a href="dashboard.html" class="sidebar-link">
+              <span class="sidebar-icon">🏠</span>
+              <span>Início</span>
+            </a>
+          </li>
+          <li class="sidebar-menu-item">
+            <a href="produtos-lista.html" class="sidebar-link">
+              <span class="sidebar-icon">📦</span>
+              <span>Produtos</span>
+            </a>
+          </li>
+          <li class="sidebar-menu-item">
+            <a href="produtos-cadastro.html" class="sidebar-link">
+              <span class="sidebar-icon">➕</span>
+              <span>Cadastrar Produto</span>
+            </a>
+          </li>
+          <li class="sidebar-menu-item">
+            <a href="estatisticas.html" class="sidebar-link">
+              <span class="sidebar-icon">📊</span>
+              <span>Estatísticas</span>
+            </a>
+          </li>
+          <li class="sidebar-menu-item">
+            <a href="configuracoes.html" class="sidebar-link active">
+              <span class="sidebar-icon">⚙️</span>
+              <span>Configurações</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="user-info">
+          <span class="user-name" id="user-name">Administrador</span>
+        </div>
+        <button id="logout-btn" class="sidebar-link">
+          <span class="sidebar-icon">🚪</span>
+          <span>Sair</span>
+        </button>
+      </div>
+    </div>
+    
+    <main class="main-content">
+      <div class="configuracoes-container">
+        <h1>Configurações</h1>
+        
+        <div id="mensagem-container"></div>
+        
+        <div class="tabs">
+          <div class="tab active" data-tab="geral">Geral</div>
+          <div class="tab" data-tab="estoque">Estoque</div>
+          <div class="tab" data-tab="dados">Dados</div>
+        </div>
+        
+        <div class="tab-content active" id="tab-geral">
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Informações Gerais</h2>
+            </div>
+            <div class="card-content">
+              <div class="form-group">
+                <label for="nome-loja" class="label">Nome da Loja</label>
+                <input type="text" id="nome-loja" class="input" value="COSMÉTICOS">
+              </div>
+              
+              <div class="form-group">
+                <label for="moeda" class="label">Moeda</label>
+                <select id="moeda" class="input">
+                  <option value="BRL">Real Brasileiro (R$)</option>
+                  <option value="USD">Dólar Americano ($)</option>
+                  <option value="EUR">Euro (€)</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label for="tema" class="label">Tema</label>
+                <select id="tema" class="input">
+                  <option value="claro">Claro</option>
+                  <option value="escuro">Escuro</option>
+                </select>
+              </div>
+              
+              <button id="btn-salvar-geral" class="btn btn-primary">Salvar Alterações</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="tab-content" id="tab-estoque">
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Configurações de Estoque</h2>
+            </div>
+            <div class="card-content">
+              <div class="form-group">
+                <label for="estoque-minimo-padrao" class="label">Estoque Mínimo Padrão</label>
+                <input type="number" id="estoque-minimo-padrao" class="input" min="1" value="10">
+                <p class="input-help">Quantidade mínima padrão para novos produtos</p>
+              </div>
+              
+              <div class="form-group checkbox-group">
+                <input type="checkbox" id="alerta-estoque-baixo" checked>
+                <label for="alerta-estoque-baixo" class="checkbox-label">Alertar quando estoque estiver baixo</label>
+              </div>
+              
+              <button id="btn-salvar-estoque" class="btn btn-primary">Salvar Alterações</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="tab-content" id="tab-dados">
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Backup e Restauração</h2>
+            </div>
+            <div class="card-content">
+              <div class="form-group">
+                <button id="btn-exportar" class="btn btn-secondary">Exportar Dados</button>
+                <p class="input-help">Faça o download de todos os seus dados</p>
+              </div>
+              
+              <div class="form-group">
+                <label for="importar-dados" class="btn btn-secondary">Importar Dados</label>
+                <input type="file" id="importar-dados" accept=".json" style="display: none;">
+                <p class="input-help">Restaure dados a partir de um backup</p>
+              </div>
+              
+              <div class="form-group">
+                <button id="btn-limpar-dados" class="btn btn-danger">Limpar Dados</button>
+                <p class="input-help">Remover todos os produtos do sistema</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Dados de Exemplo</h2>
+            </div>
+            <div class="card-content">
+              <div class="form-group">
+                <button id="btn-dados-exemplo" class="btn btn-secondary">Carregar Dados de Exemplo</button>
+                <p class="input-help">Carrega produtos de exemplo para testar o sistema</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  <script src="js/auth.js"></script>
+  <script src="js/configuracoes.js"></script>
+</body>
+</html>

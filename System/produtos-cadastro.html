@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COSMÉTICOS - Cadastrar Produto</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/sidebar.css">
+  <link rel="stylesheet" href="css/produtos.css">
+</head>
+<body>
+  <div class="app-container">
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h1 class="sidebar-title">COSMÉTICOS</h1>
+      </div>
+      <nav class="sidebar-nav">
+        <ul class="sidebar-menu">
+          <li class="sidebar-menu-item">
+            <a href="dashboard.html" class="sidebar-link">
+              <span class="sidebar-icon">🏠</span>
+              <span>Início</span>
+            </a>
+          </li>
+          <li class="sidebar-menu-item">
+            <a href="produtos-lista.html" class="sidebar-link">
+              <span class="sidebar-icon">📦</span>
+              <span>Produtos</span>
+            </a>
+          </li>
+          <li class="sidebar-menu-item">
+            <a href="produtos-cadastro.html" class="sidebar-link active">
+              <span class="sidebar-icon">➕</span>
+              <span>Cadastrar Produto</span>
+            </a>
+          </li>
+          <li class="sidebar-menu-item">
+            <a href="estatisticas.html" class="sidebar-link">
+              <span class="sidebar-icon">📊</span>
+              <span>Estatísticas</span>
+            </a>
+          </li>
+          <li class="sidebar-menu-item">
+            <a href="configuracoes.html" class="sidebar-link">
+              <span class="sidebar-icon">⚙️</span>
+              <span>Configurações</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="user-info">
+          <span class="user-name" id="user-name">Administrador</span>
+        </div>
+        <button id="logout-btn" class="sidebar-link">
+          <span class="sidebar-icon">🚪</span>
+          <span>Sair</span>
+        </button>
+      </div>
+    </div>
+    
+    <main class="main-content">
+      <div class="form-container">
+        <h1>Cadastrar Novo Produto</h1>
+        
+        <div id="mensagem-container"></div>
+        
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Informações do Produto</h2>
+            <p class="card-description">Preencha os dados do novo produto</p>
+          </div>
+          <div class="card-content">
+            <form id="form-produto">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="nome" class="label">Nome do Produto</label>
+                  <input type="text" id="nome" class="input" required>
+                </div>
+                
+                <div class="form-group">
+                  <label for="categoria" class="label">Categoria</label>
+                  <select id="categoria" class="input" required>
+                    <option value="Maquiagem">Maquiagem</option>
+                    <option value="Skincare">Skincare</option>
+                    <option value="Cabelo">Cabelo</option>
+                    <option value="Unhas">Unhas</option>
+                    <option value="Perfumaria">Perfumaria</option>
+                  </select>
+                </div>
+                
+                <div class="form-group">
+                  <label for="quantidade" class="label">Quantidade Inicial</label>
+                  <input type="number" id="quantidade" class="input" min="0" value="0" required>
+                </div>
+                
+                <div class="form-group">
+                  <label for="estoque-minimo" class="label">Estoque Mínimo</label>
+                  <input type="number" id="estoque-minimo" class="input" min="1" value="10" required>
+                  <p class="input-help">Quantidade mínima para alertas de estoque baixo</p>
+                </div>
+                
+                <div class="form-group">
+                  <label for="custo" class="label">Custo (R$)</label>
+                  <input type="number" id="custo" class="input" min="0" step="0.01" required>
+                  <p class="input-help">Valor pago pelo produto</p>
+                </div>
+                
+                <div class="form-group">
+                  <label for="valor-venda" class="label">Valor de Venda (R$)</label>
+                  <input type="number" id="valor-venda" class="input" min="0" step="0.01" required>
+                  <p class="input-help">Valor de venda ao cliente</p>
+                </div>
+              </div>
+              
+              <div id="margem-lucro" class="margem-lucro" style="display: none;">
+                <span>Margem de Lucro:</span>
+                <span id="margem-lucro-valor" class="margem-lucro-valor">0%</span>
+              </div>
+              
+              <div class="form-footer">
+                <button type="button" id="btn-limpar" class="btn btn-secondary">Limpar</button>
+                <button type="submit" class="btn btn-primary">Cadastrar Produto</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  <script src="js/auth.js"></script>
+  <script src="js/produtos-cadastro.js"></script>
+</body>
+</html>

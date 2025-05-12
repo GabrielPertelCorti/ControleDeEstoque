@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COSMÉTICOS - Login</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-card">
+      <div class="login-header">
+        <h1>COSMÉTICOS</h1>
+        <p>Sistema de Controle de Estoque</p>
+      </div>
+      <div class="login-form">
+        <div class="form-group">
+          <label for="username">Usuário</label>
+          <input type="text" id="username" class="input" placeholder="Digite seu usuário">
+        </div>
+        <div class="form-group">
+          <label for="password">Senha</label>
+          <input type="password" id="password" class="input" placeholder="Digite sua senha">
+        </div>
+        <div class="form-group">
+          <div class="checkbox-group">
+            <input type="checkbox" id="remember">
+            <label for="remember">Lembrar-me</label>
+          </div>
+        </div>
+        <div id="login-error" class="alert alert-error" style="display: none;"></div>
+        <button id="login-btn" class="btn btn-primary btn-block">Entrar</button>
+      </div>
+      <div class="login-footer">
+        <p>© 2025 COSMÉTICOS - Todos os direitos reservados</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/login.js"></script>
+</body>
+</html>

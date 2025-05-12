@@ -1,0 +1,167 @@
+.produtos-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.produtos-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.produtos-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.search-container {
+  width: 300px;
+}
+
+.search-input {
+  width: 100%;
+}
+
+.produtos-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.produtos-table th,
+.produtos-table td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.produtos-table th {
+  background-color: var(--secondary-color);
+  font-weight: 600;
+}
+
+.produtos-table tr:hover {
+  background-color: rgba(243, 244, 246, 0.5);
+}
+
+.estoque-baixo {
+  background-color: rgba(239, 68, 68, 0.05);
+}
+
+.estoque-baixo td:nth-child(3) {
+  color: var(--error-color);
+  font-weight: 500;
+}
+
+.acoes-container {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+}
+
+.quantidade-controle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-quantidade {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 0.25rem;
+  background-color: var(--secondary-color);
+  border: 1px solid var(--border-color);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-quantidade:hover {
+  background-color: #e5e7eb;
+}
+
+.quantidade-valor {
+  min-width: 2rem;
+  text-align: center;
+}
+
+.lucro-positivo {
+  color: var(--success-color);
+}
+
+.lucro-negativo {
+  color: var(--error-color);
+}
+
+.form-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .produtos-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .produtos-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .search-container {
+    width: 100%;
+  }
+}
+
+.form-footer {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.input-help {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  margin-top: 0.25rem;
+}
+
+.margem-lucro {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  background-color: var(--secondary-color);
+}
+
+.margem-lucro-valor {
+  font-weight: 500;
+}
+
+.margem-lucro-positiva {
+  color: var(--success-color);
+}
+
+.margem-lucro-negativa {
+  color: var(--error-color);
+}

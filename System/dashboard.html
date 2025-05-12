@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COSMÉTICOS - Dashboard</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/sidebar.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+  <div class="app-container">
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h1 class="sidebar-title">COSMÉTICOS</h1>
+      </div>
+      <nav class="sidebar-nav">
+        <ul class="sidebar-menu">
+          <li class="sidebar-menu-item">
+            <a href="dashboard.html" class="sidebar-link active">
+              <span class="sidebar-icon">🏠</span>
+              <span>Início</span>
+            </a>
+          </li>
+          <li class="sidebar-menu-item">
+            <a href="produtos-lista.html" class="sidebar-link">
+              <span class="sidebar-icon">📦</span>
+              <span>Produtos</span>
+            </a>
+          </li>
+          <li class="sidebar-menu-item">
+            <a href="produtos-cadastro.html" class="sidebar-link">
+              <span class="sidebar-icon">➕</span>
+              <span>Cadastrar Produto</span>
+            </a>
+          </li>
+          <li class="sidebar-menu-item">
+            <a href="estatisticas.html" class="sidebar-link">
+              <span class="sidebar-icon">📊</span>
+              <span>Estatísticas</span>
+            </a>
+          </li>
+          <li class="sidebar-menu-item">
+            <a href="configuracoes.html" class="sidebar-link">
+              <span class="sidebar-icon">⚙️</span>
+              <span>Configurações</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="user-info">
+          <span class="user-name" id="user-name">Administrador</span>
+        </div>
+        <button id="logout-btn" class="sidebar-link">
+          <span class="sidebar-icon">🚪</span>
+          <span>Sair</span>
+        </button>
+      </div>
+    </div>
+    
+    <main class="main-content">
+      <div class="dashboard-container">
+        <h1>Painel de Controle</h1>
+        
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-card-header">
+              <h3>Total de Produtos</h3>
+              <span class="stat-icon">📦</span>
+            </div>
+            <div class="stat-card-content">
+              <div class="stat-value" id="total-produtos">0</div>
+              <p class="stat-description">produtos cadastrados</p>
+            </div>
+          </div>
+          
+          <div class="stat-card">
+            <div class="stat-card-header">
+              <h3>Valor do Estoque</h3>
+              <span class="stat-icon">💰</span>
+            </div>
+            <div class="stat-card-content">
+              <div class="stat-value" id="valor-estoque">R$ 0,00</div>
+              <p class="stat-description">em produtos</p>
+            </div>
+          </div>
+          
+          <div class="stat-card">
+            <div class="stat-card-header">
+              <h3>Lucro Potencial</h3>
+              <span class="stat-icon">💎</span>
+            </div>
+            <div class="stat-card-content">
+              <div class="stat-value" id="lucro-potencial">R$ 0,00</div>
+              <p class="stat-description">estimado</p>
+            </div>
+          </div>
+          
+          <div class="stat-card">
+            <div class="stat-card-header">
+              <h3>Estoque Baixo</h3>
+              <span class="stat-icon">⚠️</span>
+            </div>
+            <div class="stat-card-content">
+              <div class="stat-value" id="estoque-baixo">0</div>
+              <p class="stat-description">produtos</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="info-grid">
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Produtos Mais Lucrativos</h2>
+              <p class="card-description">Top 5 produtos com maior margem de lucro</p>
+            </div>
+            <div class="card-content">
+              <ul class="product-list" id="produtos-lucrativos">
+                <li class="product-list-item empty-list">Nenhum produto cadastrado</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Estoque Crítico</h2>
+              <p class="card-description">Produtos com estoque abaixo do mínimo</p>
+            </div>
+            <div class="card-content">
+              <ul class="product-list" id="produtos-criticos">
+                <li class="product-list-item empty-list">Nenhum produto com estoque crítico</li>
+              </ul>
+            </div>
+            <div class="card-footer">
+              <a href="produtos-lista.html" class="btn btn-primary">Gerenciar Estoque</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  <script src="js/auth.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
